@@ -14,9 +14,11 @@ class ViewController: UIViewController {
     
     @IBOutlet var textLat: UITextField!
     @IBOutlet var textLong: UITextField!
+    @IBOutlet var textMagnification: UITextField!
+    
     let delta = 10.0
-    var defaultLat = 43.6532
-    var defaultLong = -79.3832
+    var defaultLatitude = 43.6532
+    var defaultLongitude = -79.3832
     let mapLocation = CLLocationCoordinate2DMake(43.6532, -79.3832)
 
     @IBOutlet var Map: MKMapView!
@@ -25,7 +27,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let loc = CLLocationCoordinate2DMake(defaultLat,defaultLong)
+        let loc = CLLocationCoordinate2DMake(defaultLatitude,defaultLongitude)
         let span = MKCoordinateSpanMake(delta, delta)
         let reg = MKCoordinateRegionMake(loc, span)
         self.Map.region = reg
@@ -42,20 +44,21 @@ class ViewController: UIViewController {
         
         let lat = Double(self.textLat.text!)
         let long = Double(self.textLong.text!)
+        let magnification = Double(self.textMagnification.text!)
         let coordinates = textLat.text! + (",") + textLong.text!
         
         let coordinateLocation = CLLocationCoordinate2DMake(lat!, long!)
         let loc = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat!), longitude: CLLocationDegrees(long!))
-        let span = MKCoordinateSpanMake(delta, delta)
+        let span = MKCoordinateSpanMake(CLLocationDegrees(magnification!), CLLocationDegrees(magnification!))
         let reg = MKCoordinateRegionMake(loc, span)
         self.Map.region = reg
 
         let ann = MKPointAnnotation()
         ann.coordinate = coordinateLocation
         ann.title = coordinates
-        ann.subtitle = "Home"
+        ann.subtitle = "Coordinate Location"
         self.Map.addAnnotation(ann)
-        
+        self.Map.selectAnnotation(ann, animated: true)
 
     }
 
