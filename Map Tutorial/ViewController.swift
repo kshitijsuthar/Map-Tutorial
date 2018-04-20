@@ -1,42 +1,59 @@
+
+//Project by:
 //
-//  ViewController.swift
-//  Map Tutorial
+//      Kshitij Suthar - 300971838
+//      Yash Sompura - 300967186
+//      Shivam Shah - 300877523
 //
-//  Created by Kshitij Suthar on 2018-04-16.
-//  Copyright © 2018 Kshitij Suthar. All rights reserved.
-//
+
 
 import UIKit
 import MapKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var textLat: UITextField!
+    @IBOutlet var textLong: UITextField!
     let delta = 10.0
-    var lat = 43.6532
-    var long = -79.3832
+    var defaultLat = 43.6532
+    var defaultLong = -79.3832
     let mapLocation = CLLocationCoordinate2DMake(43.6532, -79.3832)
 
     @IBOutlet var Map: MKMapView!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        let loc = CLLocationCoordinate2DMake(lat, long)
+        let loc = CLLocationCoordinate2DMake(defaultLat,defaultLong)
         let span = MKCoordinateSpanMake(delta, delta)
         let reg = MKCoordinateRegionMake(loc, span)
         self.Map.region = reg
+
+    }
+
+    @IBAction func btnSearch(_ sender: Any) {
         
+        let lat = Double(self.textLat.text!)
+        let long = Double(self.textLong.text!)
+        let coordinates = textLat.text! + (",") + textLong.text!
+        
+        let coordinateLocation = CLLocationCoordinate2DMake(lat!, long!)
+        let loc = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat!), longitude: CLLocationDegrees(long!))
+        let span = MKCoordinateSpanMake(delta, delta)
+        let reg = MKCoordinateRegionMake(loc, span)
+        self.Map.region = reg
+
         let ann = MKPointAnnotation()
-        ann.coordinate = self.mapLocation
-        ann.title = "Toronto"
+        ann.coordinate = coordinateLocation
+        ann.title = coordinates
         ann.subtitle = "Home"
         self.Map.addAnnotation(ann)
+        
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     @IBAction func mapButton(_ sender: UIButton) {
         
         let placemark = MKPlacemark(coordinate: self.mapLocation, addressDictionary: nil)

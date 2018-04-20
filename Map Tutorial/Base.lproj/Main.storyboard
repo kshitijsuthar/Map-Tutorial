@@ -43,6 +43,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psm-2T-urK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BP5-E6-qfK">
                                 <rect key="frame" x="337" y="625" width="22" height="22"/>
@@ -71,6 +74,8 @@
                     </view>
                     <connections>
                         <outlet property="Map" destination="YGa-YZ-xFW" id="mxl-Ha-OGi"/>
+                        <outlet property="textLat" destination="Do2-kG-PaI" id="saU-y5-Wzh"/>
+                        <outlet property="textLong" destination="14d-7b-2Ju" id="1x8-VI-nPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
