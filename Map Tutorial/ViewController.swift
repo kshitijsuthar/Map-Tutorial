@@ -65,9 +65,9 @@ class ViewController: UIViewController {
     
     @IBAction func mapButton(_ sender: UIButton) {
         
-        let placemark = MKPlacemark(coordinate: self.mapLocation, addressDictionary: nil)
+        let placemark = MKPlacemark(coordinate: self.Map.centerCoordinate, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "An awesome place"
+        mapItem.name = textLat.text! + (",") + textLong.text!
         mapItem.openInMaps(launchOptions: [
             MKLaunchOptionsMapTypeKey: MKMapType.standard.rawValue,
             MKLaunchOptionsMapCenterKey: self.Map.region.center,
