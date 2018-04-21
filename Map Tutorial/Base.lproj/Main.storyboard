@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,20 +19,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="hybrid" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGa-YZ-xFW">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGa-YZ-xFW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do2-kG-PaI">
+                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do2-kG-PaI">
                                 <rect key="frame" x="6" y="28" width="117" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="W2D-nv-RDg"/>
+                                </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-IE-HM0">
+                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-IE-HM0">
                                 <rect key="frame" x="149" y="70" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50980392159999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,30 +41,46 @@
                                     <action selector="btnSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psm-2T-urK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BP5-E6-qfK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BP5-E6-qfK">
                                 <rect key="frame" x="337" y="625" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="mapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gbw-hS-cOk"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Magnification" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce9-Qa-nHB">
+                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Magnification" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce9-Qa-nHB">
                                 <rect key="frame" x="252" y="28" width="117" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14d-7b-2Ju">
+                            <textField opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14d-7b-2Ju">
                                 <rect key="frame" x="129" y="28" width="117" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Do2-kG-PaI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="6" id="4ox-QF-09a"/>
+                            <constraint firstItem="Do2-kG-PaI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ce4-Oq-peC"/>
+                            <constraint firstItem="2v2-IE-HM0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="149" id="DTT-pU-xdC"/>
+                            <constraint firstItem="YGa-YZ-xFW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IF6-uK-63X"/>
+                            <constraint firstItem="14d-7b-2Ju" firstAttribute="baseline" secondItem="ce9-Qa-nHB" secondAttribute="baseline" id="MLo-G7-K6z"/>
+                            <constraint firstAttribute="bottom" secondItem="BP5-E6-qfK" secondAttribute="bottom" constant="20" symbolic="YES" id="YUD-1p-sma"/>
+                            <constraint firstAttribute="trailing" secondItem="YGa-YZ-xFW" secondAttribute="trailing" id="YXH-tD-8p9"/>
+                            <constraint firstItem="YGa-YZ-xFW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Yw8-hl-Rjj"/>
+                            <constraint firstItem="14d-7b-2Ju" firstAttribute="centerX" secondItem="2v2-IE-HM0" secondAttribute="centerX" id="e9h-kC-lFV"/>
+                            <constraint firstItem="ce9-Qa-nHB" firstAttribute="leading" secondItem="14d-7b-2Ju" secondAttribute="trailing" constant="6" id="gxa-J2-RSx"/>
+                            <constraint firstItem="BP5-E6-qfK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="k0U-wc-sbX"/>
+                            <constraint firstItem="Do2-kG-PaI" firstAttribute="baseline" secondItem="14d-7b-2Ju" secondAttribute="baseline" id="qFU-UK-1jf"/>
+                            <constraint firstItem="14d-7b-2Ju" firstAttribute="leading" secondItem="Do2-kG-PaI" secondAttribute="trailing" constant="6" id="r6I-qn-GxP"/>
+                            <constraint firstItem="YGa-YZ-xFW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rpZ-Bt-MiO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ce9-Qa-nHB" secondAttribute="trailing" constant="6" id="tvF-ih-vcX"/>
+                            <constraint firstItem="2v2-IE-HM0" firstAttribute="top" secondItem="14d-7b-2Ju" secondAttribute="bottom" constant="12" id="vrq-dP-lB2"/>
+                            <constraint firstItem="YGa-YZ-xFW" firstAttribute="centerX" secondItem="2v2-IE-HM0" secondAttribute="centerX" id="wHJ-xh-Pi4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
