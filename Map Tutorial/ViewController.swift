@@ -82,6 +82,23 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        let loc = CLLocationCoordinate2DMake(defaultLatitude,defaultLongitude)
+        let span = MKCoordinateSpanMake(delta, delta)
+        let reg = MKCoordinateRegionMake(loc, span)
+        self.Map.region = reg
+        
+        let defaultAnnotation = MKPointAnnotation()
+        defaultAnnotation.coordinate = mapLocation
+        defaultAnnotation.title = "Toronto"
+        defaultAnnotation.subtitle = "Home"
+        self.Map.addAnnotation(defaultAnnotation)
+        
+        let alert = UIAlertController(title: "Shake Motion Detected", message: "You shook the device, resetting map to default location",preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true)
+    }
 
     
     @IBAction func mapButton(_ sender: UIButton) {
